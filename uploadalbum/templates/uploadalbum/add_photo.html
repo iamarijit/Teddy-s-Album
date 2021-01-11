@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Add Photo</title>
+        <link rel="stylesheet" href="{% static "uploadalbum/mystyles.css" %}">
+        <link href='https://fonts.googleapis.com/css?family=Bellota' rel='stylesheet'>
+    </head>
+
+    <body>
+        {% include "uploadalbum/form-header.html" %}
+        <div class="container">
+            <form  action="{% url 'add_photo' %}" method="post" id="add_photo" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label name="name">Enter Image Name</label><br>
+                    <input type="text" class="form-control" id="name" name="Name" placeholder="Image Name"><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="upload-photo" name="file" class="file">Add Photo</label>
+                    <input type="file" title=" " id="upload-photo" name="Image" accept="image/*">
+                </div>
+
+                <input type="submit" class="btn btn-primary" value="Upload" name="Upload">
+            </form>   
+        </div>
+    </body>
+</html>

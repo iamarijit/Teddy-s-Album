@@ -1,0 +1,60 @@
+html{
+    margin: 0px;
+    padding: 0px;
+}
+
+.heading{
+    font-family: 'Bellota';
+    font-size: 50px;
+}
+
+label, input{
+    font-family: 'Bellota';
+    font-size: 30px;
+}
+
+
+
+.thumbs{
+    border-radius: 15%;
+}
+
+.thumbs:hover{
+    padding: 4px;
+}
+
+.thumbnails{
+    padding: 20px;
+}
+
+#fixedbutton{
+    position: fixed;
+    bottom: 30px;
+    right: 30px; 
+}
+
+#fixedbutton:hover{
+    opacity: 0.5;
+}
+
+*{
+    background-color: black;
+    color: blanchedalmond;
+    text-align: center;
+    
+}
+
+.form-group{
+    padding: 25px;
+    margin: 25px;
+}
+
+#upload-photo {
+    display: none;
+ }
+
+label[for="upload-photo"]{
+    cursor: pointer;
+    border: 1px solid;
+    padding: 10px;
+}

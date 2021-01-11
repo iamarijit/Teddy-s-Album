@@ -1,0 +1,63 @@
+<!--html>
+    {% if photos %}
+        <div>
+            {% for photo in photos %}
+                <img height="300" width="500" src="{{ photo.image.url }}">
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No photos are available.</p>
+    {% endif %}
+</html-->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Album Gallery</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="{% static "uploadalbum/grid-gallery.min.css" %}">
+    <link rel="stylesheet" href="{% static "uploadalbum/mystyles.css" %}">
+    <link href='https://fonts.googleapis.com/css?family=Bellota' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Text|Lexend+Deca&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+  </head>
+  <body>
+      {% include "uploadalbum/header.html" %}
+    <div class="content">
+      <div class="gg-container">
+        <div class="gg-box thumbnails" id="gap">
+            {% for photo in photos %}
+                <img class="thumbs" src="{{ photo.image.url }}">
+            {% endfor %}
+        </div>
+        <a href="{% url 'add_photo' %}"><img width="100" height="100" src="{% static "uploadalbum/plus.png" %}" id="fixedbutton"></a>
+      </div>
+    </div>
+    <script src="{% static "uploadalbum/grid-gallery.min.js" %}"></script>
+    <script>
+    gridGallery({
+      selector: ".dark",
+      darkMode: true
+    });
+    gridGallery({
+      selector: "#horizontal",
+      layout: "horizontal"
+    });
+    gridGallery({
+      selector: "#square",
+      layout: "square"
+    });
+    gridGallery({
+      selector: "#gap",
+      gaplength: 10
+    });
+    gridGallery({
+      selector: "#heightWidth",
+      rowHeight: 180,
+      columnWidth: 280
+    });
+    </script>
+  </body>
+</html>
